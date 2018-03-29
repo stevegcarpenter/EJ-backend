@@ -1,6 +1,6 @@
 'use strict';
 
-const checkArea = require('../../top-airports/top-airports');
+const filterFlights = require('../../filter-flights/filter-flights');
 require('jest');
 
 let data = [ { destination: 'DEN',
@@ -41,22 +41,22 @@ describe('Check checkArea fucntion', function () {
 
   describe('Valid Requests', () => {
     it('should return only US airports', () => {
-      expect(checkArea.checkAirport(data, 'usa')).toEqual(usaAnswer);
+      expect(filterFlights(data, 'usa')).toEqual(usaAnswer);
     });
     it('should return only EU airports', () => {
-      expect(checkArea.checkAirport(data, 'eu')).toEqual(euAnswer);
+      expect(filterFlights(data, 'eu')).toEqual(euAnswer);
     });
     it('should return only ASIA airports', () => {
-      expect(checkArea.checkAirport(data, 'asia')).toEqual(asiaAnswer);
+      expect(filterFlights(data, 'asia')).toEqual(asiaAnswer);
     });
     it('should return only ALL airports', () => {
-      expect(checkArea.checkAirport(data, 'all')).toEqual(data);
+      expect(filterFlights(data, 'all')).toEqual(data);
     });
   });
 
   describe('Invalid Requests', () => {
-    it('should return only ALL airports if invaild input', () => {
-      expect(checkArea.checkAirport(data, 'test')).toEqual(data);
+    it('should throw an error when a false argument is provided for country', () => {
+      expect(() => filterFlights(data, '')).toThrow('Invalid country');
     });
   });
 
