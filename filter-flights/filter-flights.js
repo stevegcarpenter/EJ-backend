@@ -33,8 +33,7 @@ module.exports = (flightResults, country) => {
 
   country = country.toString().toLowerCase();
 
-  // Return all if necessary
-  if (country === 'all') {
+  if (country === 'anywhere') {
     debug('filter-flights: returning all flights');
     return flightResults;
   }

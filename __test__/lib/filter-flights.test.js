@@ -49,8 +49,8 @@ describe('Check checkArea fucntion', function () {
     it('should return only ASIA airports', () => {
       expect(filterFlights(data, 'asia')).toEqual(asiaAnswer);
     });
-    it('should return only ALL airports', () => {
-      expect(filterFlights(data, 'all')).toEqual(data);
+    it('should return ALL airports', () => {
+      expect(filterFlights(data, 'anywhere')).toEqual(data);
     });
   });
 
