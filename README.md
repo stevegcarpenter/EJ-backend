@@ -1,6 +1,6 @@
 <h2 align="center">Get the Flight Out</h2>
 
-![Logo](./logo.png)
+![Logo](./assets/logo.png)
 
 <p align="center">
   <a href="#getting-started">Getting Started</a> •
@@ -45,7 +45,6 @@ To use this application as a developer:
     "jest": "^22.1.4",
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.3",
-    "multer": "^1.3.0",
     "superagent": "^3.8.2"
 ```
 * Add the following .env files
