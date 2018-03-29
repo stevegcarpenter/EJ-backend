@@ -5,7 +5,7 @@ const requestMock = require('express-request-mock');
 const server = require('../../lib/server');
 const superagent = require('superagent');
 const faker = require('faker');
-const mocks = require('./mock');
+const mocks = require('../lib/mock');
 
 require('jest');
 
@@ -30,7 +30,7 @@ describe('AMA Middleware', function () {
       query: {
         origin: 'sea',
         destination: 'icn',
-        departure_date: '2018-03-29',
+        departure_date: '2018-12-29',
         nonstop: 'true',
       },
     };
@@ -38,7 +38,6 @@ describe('AMA Middleware', function () {
     it('returns flight data', () => {
       return requestMock(amaMiddle.lowfareSearch, request, ()=>{})
         .then(({req}) => {
-          console.log('REQ.LOWFARE', req.lowfare);
           expect(req.lowfare).toHaveProperty('currency');
           expect(req.lowfare).toHaveProperty('results');
           expect(req.lowfare.results[0]).toHaveProperty('itineraries');

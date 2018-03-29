@@ -7,6 +7,9 @@ const superagent = require('superagent');
 const server = require('../../../lib/server');
 require('jest');
 
+const PORT = process.env.PORT;
+const ENDPOINT = `:${PORT}/api/v1/signin`;
+
 describe('PUT /api/v1/users/:id?', function() {
   beforeAll(server.start);
   beforeAll(() => mock.user.createOne().then(data => this.mockUser = data));
