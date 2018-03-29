@@ -38,6 +38,7 @@ describe('AMA Middleware', function () {
     it('returns flight data', () => {
       return requestMock(amaMiddle.lowfareSearch, request, ()=>{})
         .then(({req}) => {
+          console.log('REQ.LOWFARE', req.lowfare);
           expect(req.lowfare).toHaveProperty('currency');
           expect(req.lowfare).toHaveProperty('results');
           expect(req.lowfare.results[0]).toHaveProperty('itineraries');
